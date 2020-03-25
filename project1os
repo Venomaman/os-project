@@ -4,9 +4,9 @@
 #include<semaphore.h>
 
 char buff[24];
-//sem_t mutex;
+sem_t mutex;
 
-//struct sempahore *sa; 
+struct sempahore *sa; 
 struct sempahore *sb;
 
 void fb(void *ptr);
@@ -65,7 +65,7 @@ int main(int argc,char *argv[])
     char *msgg2="thread2";
     
     sem_init(&mutex,0,1);
-   // pthread_create(&thread1,NULL,(void *) &fb, (void*) msgg1);
+    pthread_create(&thread1,NULL,(void *) &fb, (void*) msgg1);
     pthread_create(&thread2,NULL,(void *) &fa, (void*) msgg2);
     pthread_create(&thread2,NULL,(void *) &fc, (void*) msgg2);
         
